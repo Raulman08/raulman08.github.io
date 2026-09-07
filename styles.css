@@ -1,0 +1,129 @@
+/* Reset mínimo — quita los márgenes/paddings raros que pone el navegador por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Acento único, nada de degradado azul-morado (cliché de IA que avisa el playbook).
+     Ámbar quemado: contrasta con el gris/negro técnico sin caer en el azul "startup". */
+  --accent: #c4622d;
+  --accent-dark: #9c4c22;
+}
+
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+header {
+  padding: 4rem 1.5rem;
+  text-align: left; /* evitando el "todo centrado" que avisa el playbook */
+}
+
+header h1 {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Pequeño detalle de acento bajo el nombre, en vez de dejarlo todo en blanco y negro */
+header h1::after {
+  content: "";
+  position: absolute;
+  left: 0.15em;
+  bottom: -0.15em;
+  width: 2.5em;
+  height: 0.2em;
+  background: var(--accent);
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+section {
+  padding: 2rem 1.5rem 4rem;
+}
+
+.label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: #888;
+}
+
+section > p:not(.label) {
+  max-width: 34rem;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+section h2 {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+section ul {
+  list-style: none;
+  counter-reset: item;
+  max-width: 32rem;
+}
+
+section li {
+  counter-increment: item;
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid #e5e5e5;
+  font-size: 1.05rem;
+}
+
+section li::before {
+  content: "0" counter(item);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.proyectos-placeholder {
+  max-width: 34rem;
+  padding: 1.5rem;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+}
+
+.proyectos-placeholder p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px; /* sutil, no el "rounded-lg everywhere" que avisa el playbook */
+  transition: background 0.15s ease;
+}
+
+.btn-whatsapp:hover {
+  background: var(--accent-dark);
+}
+
+.btn-whatsapp:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
